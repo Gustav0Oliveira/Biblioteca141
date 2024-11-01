@@ -9,6 +9,7 @@ class Livro{
     public $autor;
     public $descricao;
     public $genero;
+    public $status = "";
     
     public function __construct($bd){
         $this->conexao = $bd;
@@ -25,7 +26,13 @@ class Livro{
         $resultado = $this->conexao->query($query);
         return $resultado;
     }
+    
     public function deletarLivro(){
         $query = "DELETE * FROM livro where titulo = titulo ".$this->titulo.";";
+    }
+
+    public function atualizarLivro($valores){
+        $query = "update livro ";
+        // terminar essa parte do update
     }
 }
