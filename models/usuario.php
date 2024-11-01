@@ -23,7 +23,8 @@ public function emprestar($livro){
         array_push($this->livros_emprestados,$livros);
         return;
     }
-}
+} 
+
 public function devolver($livro){
     if(in_array($livro,$this->livros_emprestados)){
         $livro->devolver_livros();
@@ -38,7 +39,7 @@ public function criar($nome){
     return "insert into usuario(nome,cep) values (".$this->nome.",".$this->cep.");";
 }
 public function ler(){
-    return "select * from usuario where nome= ".$this->nome.";";
+    return "select * from usuario where nome = ".$this->nome.";";
 }
 public function atualizar(){
     return "update usuario set nome=".$nome_atualizado. "where nome=".$this->nome.";";

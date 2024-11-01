@@ -25,4 +25,7 @@ class Livro{
         $resultado = $this->conexao->query($query);
         return $resultado;
     }
+    public function deletarLivro(){
+        $query = "DELETE * FROM livro where titulo = titulo ".$this->titulo.";";
+    }
 }
