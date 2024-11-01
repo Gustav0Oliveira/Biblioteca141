@@ -1,6 +1,5 @@
 <?php
 
-echo "teste inicio ";
 class Usuario {
 
 protected $nome;

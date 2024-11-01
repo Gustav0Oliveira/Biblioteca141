@@ -1,7 +1,5 @@
 <?php
 
-require "../config/database.php";
-
 class Livro{
     private $conexao;
     private $tabela = 'livro';
@@ -22,15 +20,9 @@ class Livro{
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function registrarLivro(){
-        $query = "INSERT INTO {$this->tabela} (titulo, autor, genero) values ('{$this->titulo}', '{$this->autor}', '{$this->genero});";
-        return $this->conexao->query($query);
+    public function cadastrarLivro(){
+        $query = "INSERT INTO {$this->tabela} (titulo, autor, genero) values ('{$this->titulo}','{$this->autor}', '{$this->genero}');";
+        $resultado = $this->conexao->query($query);
+        return $resultado;
     }
 }
-
-$banco = new Banco();
-$livro = new Livro($banco->conectar());
-$livro->id = 1;
-echo "<pre>";
-var_dump($livro->getIdLivro($livro->id));
-echo "</pre>";
