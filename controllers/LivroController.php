@@ -37,7 +37,7 @@ class LivroController{
     }
 
     class deletarLivro($arrayDeletar){
-        $database = new Bancp();
+        $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
