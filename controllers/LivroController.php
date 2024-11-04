@@ -17,15 +17,13 @@ class LivroController{
             header('Location: index.php');
         }
         else{
-            echo "Erro ao cadastrar livro";
+            echo "Erro ao cadastrar livro"; 
         }
     }
 
     public function atualizarLivro($array_atualizar){
 
-        $query = "UPDATE livros SET titulo = '{$this->titulo}', autor = '{$this->autor}', genero = '{$this->genero}' WHERE titulo = {$this->titulo}";
-
-
+    
         $database = new Banco();
         $bd = $database->conectar();
 
