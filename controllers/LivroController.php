@@ -21,21 +21,33 @@ class LivroController{
         }
     }
 
-    public function atualizarLivro($array_atualizar){
-
-        $query = "UPDATE livros SET titulo = '{$this->titulo}', autor = '{$this->autor}', genero = '{$this->genero}' WHERE titulo = {$this->titulo}";
-
+    public function atualizarLivro($arrayAtualizar){
 
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->atualizarLivro($array_atualizar)){
-            header('Location: atualizar.php')
+        if($livro->atualizarLivro($arrayAtualizar)){
+            header('Location: atualizar.php');
         } else {
-            echo "Erro ao atualizar o livro"
+            echo "Erro ao atualizar o livro";
         }
 
     }
+
+    class deletarLivro($arrayDeletar){
+        $database = new Banco();
+        $bd = $database->conectar();
+
+        $livro = new Livro($bd);
+
+        if($livro->deletarLivro($arrayDeletar)){
+            header('Location: deletar.php');
+        } else {
+            echo "Erro ao deletar o livro";
+        }
+    }
+
+
 }
