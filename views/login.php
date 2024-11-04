@@ -40,12 +40,17 @@
             background-color: deepskyblue;
             cursor: pointer;
         }
+        .voltar{
+
+            color:white;
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
-    <a href="home.php">Voltar</a>
+    <a class="voltar" href="home.php">Voltar</a>
     <div>
-        <h1>Login</h1>
+        <h1 >Login</h1>
         <form action="testLogin.php" method="POST">
             <input type="text" name="email" placeholder="Email">
             <br><br>

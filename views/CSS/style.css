@@ -89,8 +89,8 @@ nav ul {
 }
 
 nav li {
-    margin: 0 50px; /* Adiciona margem entre os itens */
-    font-size: 20pt;
+    margin: 0 30px; /* Adiciona margem entre os itens */
+    font-size: 15pt;
     padding: 10px;
     color: white;
     
@@ -109,4 +109,13 @@ nav li {
     display: block;
     color: white;
     margin: 1%;
+}
+.tabela{
+    color: rgb(255, 255, 255);
+    font-size:16pt;
+    text-decoration: underline;
+}
+.descricao{
+
+    color: rgb(241, 241, 163);
 }

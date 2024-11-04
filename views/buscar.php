@@ -20,6 +20,7 @@
             <li><a class="link"href="buscar.php">Buscar</a></li>
             <li><a class="link"href="cadastro_usuario.php">Cadastro Usuario</a></li>
             <li><a class="link"href="cadastro_livro.php">Cadastro Livro</a></li>
+            <li><a class="link"href="lista_livros.php">Lista de Livros Cadastrados</a></li>
             <li><a class="link"href="login.php">Login</a></li>
 
         </ul>
