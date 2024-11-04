@@ -20,4 +20,24 @@ class LivroController{
             echo "Erro ao cadastrar livro";
         }
     }
+
+    public function atualizarLivro($array_atualizar){
+
+
+        
+
+
+        $database = new Banco();
+        $bd = $database->conectar();
+
+        $livro = new Livro($bd);
+        $livro->titulo = $array_atualizar['titulo'];
+        $livro->autor = $array_atualizar['autor'];
+        $livro->genero = $array_atualizar['genero'];
+
+
+
+        $livro->atualizarLivro()
+
+    }
 }
