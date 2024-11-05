@@ -31,7 +31,7 @@ class Livro{
         $query = "DELETE * FROM livro where titulo = titulo ".$this->titulo.";";
     }
 
-    public function atualizarLivro() {
+    public function atualizarLivro($array_atualizar) {
         // Verificando se o livro existe na tabela
         $queryVerifica = "SELECT * FROM {$this->tabela} WHERE id = {$this->id};";
         $resultadoVerifica = $this->conexao->query($queryVerifica);
@@ -43,23 +43,21 @@ class Livro{
         // Cria a query de atualização
         $query = "UPDATE {$this->tabela} SET ";
     
-        // Cria um array para armazenar as partes da query
-        $valores = [];
-    
+        
         // Adiciona os campos que podem ser atualizados
         if (!empty($this->titulo)) {
-            $valores[] = "titulo = '{$this->titulo}'";
+            $array_atualizar[] = "titulo = '{$this->titulo}'";
         }
         if (!empty($this->autor)) {
-            $valores[] = "autor = '{$this->autor}'";
+            $array_atualizar[] = "autor = '{$this->autor}'";
         }
         if (!empty($this->genero)) {
-            $valores[] = "genero = '{$this->genero}'";
+            $array_atualizar[] = "genero = '{$this->genero}'";
         }
     
         // Verifica se existem valores para atualizar
-        if (count($valores) > 0) {
-            $query .= implode(", ", $valores);
+        if (count($array_atualizar) > 0) {
+            $query .= implode(", ", $array_atualizar);
             $query .= " WHERE id = {$this->id};";
     
             // Executa a query
