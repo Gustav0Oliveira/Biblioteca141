@@ -28,10 +28,11 @@ class Livro{
     }
     
     public function deletarLivro(){
-        $query = "DELETE * FROM livro where titulo = titulo ".$this->titulo.";";
+        $query = "DELETE FROM {$this->tabela} WHERE titulo = '{$this->titulo}';";
+        return $this->conexao->query($query);
     }
 
-    public function atualizarLivro($array_atualizar) {
+    public function atualizarLivro() {
         // Verificando se o livro existe na tabela
         $queryVerifica = "SELECT * FROM {$this->tabela} WHERE id = {$this->id};";
         $resultadoVerifica = $this->conexao->query($queryVerifica);
@@ -39,32 +40,34 @@ class Livro{
         if ($resultadoVerifica->num_rows === 0) {
             return false; // Livro não encontrado
         }
-    
-        // Cria a query de atualização
-        $query = "UPDATE {$this->tabela} SET ";
-    
         
-        // Adiciona os campos que podem ser atualizados
-        if (!empty($this->titulo)) {
-            $array_atualizar[] = "titulo = '{$this->titulo}'";
+        $valores = [
+            'titulo' => 'Como fazer amigos e influenciar pessoas',
+            'autor' => 'Dale Carnegie',
+            'genero' => 'Autoajuda'
+        ];
+        
+        $colunasArrey = array_keys($valores);
+        $contador = 0;
+        $query = "UPDATE {$this->tabela} SET ";
+        
+        while ($contador < count($valores)) {
+        $coluna = $colunasArrey[$contador];
+        $valor = $valores[$coluna];
+        
+        $query .= $contador != (count($valores) - 1) 
+            ? $coluna . ' = "' . $valor . '", ' 
+            : $coluna . ' = "' . $valor . '" ';
+
+            $contador++;
         }
-        if (!empty($this->autor)) {
-            $array_atualizar[] = "autor = '{$this->autor}'";
-        }
-        if (!empty($this->genero)) {
-            $array_atualizar[] = "genero = '{$this->genero}'";
-        }
-    
-        // Verifica se existem valores para atualizar
-        if (count($array_atualizar) > 0) {
-            $query .= implode(", ", $array_atualizar);
-            $query .= " WHERE id = {$this->id};";
-    
-            // Executa a query
-            if ($this->conexao->query($query) === TRUE) {
-                return true; // Atualização bem-sucedida
-            }
-        }
-        return false; // Nenhum valor atualizado ou erro na atualização
+        
+        $query .= " WHERE id = {$this->id};";
+        echo $query;
+
+
+        $resultadoAtualizacao = $this->conexao->query($query);
+        
+        return $resultadoAtualizacao;
     }
 }
