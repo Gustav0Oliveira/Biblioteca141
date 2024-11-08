@@ -7,6 +7,24 @@
     <title>Biblioteca 141 - Cadastro Livro</title>
 </head>
 <body>
+<?php
+
+if(isset($_POST['submit']))
+{
+   
+
+    $nome = $_POST['nome'];
+    $autor = $_POST['autor'];
+    $genero= $_POST['genero'];
+    $qtd_disponivel = $_POST['qtd_disponivel'];
+    $ano_lancamento = $_POST['ano_lancamento'];
+   
+   include_once('config\database.php');
+   $result = mysqli_query($conexao,"INSERT INTO funcionarios(nome,autor,genero,qtd_disponiveis,ano_lancamento) 
+   values ('$nome','$autor','$genero','$qtd_disponivel','$ano_lancamento')");
+
+}
+?>
 <nav>
         <ul class="menu">
             <li><a class="link"href="home.php">Home</a></li>
@@ -27,38 +45,38 @@
                 <br>
                 <form>
                 <div class="inputBox">
-                    <input type="tel" name="cargo" id="cargo" class="inputUser" required>
-                    <label for="cargo" class="labelInput">Nome:</label>
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome:</label>
                     
                 </div>
                 <br><br> 
             </form>
                 <div class="inputBox">
-                    <input type="tel" name="cargo" id="cargo" class="inputUser" required>
-                    <label for="cargo" class="labelInput">Autor:</label>
+                    <input type="text" name="autor" id="autor" class="inputUser" required>
+                    <label for="autor" class="labelInput">Autor:</label>
                     
                 </div>
             </form>
                 <br><br> 
             <form>
                 <div class="inputBox">
-                    <input type="tel" name="cargo" id="cargo" class="inputUser" required>
-                    <label for="cargo" class="labelInput">Gênero:</label>
+                    <input type="text" name="genero" id="genero" class="inputUser" required>
+                    <label for="genero" class="labelInput">Gênero:</label>
                 
                 </div>
                 <br><br> 
             </form>
             <form>
                 <div class="inputBox">
-                    <input type="tel" name="cargo" id="cargo" class="inputUser" required>
-                    <label for="cargo" class="labelInput">Quantidade Disponíveis:</label>
+                    <input type="number" name="qtd_disponivel" id="qtd_disponivel" class="inputUser" required>
+                    <label for="qtd_disponivel" class="labelInput">Quantidade Disponíveis:</label>
                 
                 </div>
                 <br><br> 
             </form>         
             <form>
-                <label for="nascimento"><b>Data de Laçamento do livro :</b></label>
-                <input type="date" name="nascimento" id="nascimento" required>
+                <label for="ano_lancamento"><b>Data de Laçamento do livro :</b></label>
+                <input type="date" name="ano_lancamento" id="ano_lancamento" required>
                 <br><br>
                 <input type="submit" name="submit" id="submit">
             </form>
