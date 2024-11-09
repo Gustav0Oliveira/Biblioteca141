@@ -6,7 +6,7 @@ require "./models/usuario.php";
 class ControllerUsuario {
     protected $tabela = 'usuario';
 
-    public function cadastrarUsuario($nome, $email, $telefone, $cep){
+    public function criar($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento){
         $database = new Banco();
         $bd = $database->conectar();
     
@@ -15,47 +15,51 @@ class ControllerUsuario {
         $usuario->email = $email;
         $usuario->telefone = $telefone;
         $usuario->cep = $cep;
+        $this->Ncasa = $Ncasa; 
+        $this->telfixo = $telfixo;
+        $this->celular = $celular;
+        $this->nascimento = $nascimento; 
     
-        if($usuario->cadastrarUsuario($nome, $email, $telefone, $cep)){
+        if($usuario->criar($nome, $email, $telefone, $cep)){
             header('Location: index.php');
         } else {
             echo "Erro ao cadastrar usuario";    
         }
     }
 
-    public function lerUsuario($arrayLer){
+    public function ler($arrayLer){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
 
-        if($usuario->lerUsuario($arrayLer)){
+        if($usuario->ler($arrayLer)){
             header('Locatin: listar.php');
         } else {
             echo 'Erro ao listar usuarios';
         }
     }
 
-    public function atualizarUsuario($arrayAtualizar){
+    public function atualizar($arrayAtualizar){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
 
-        if($usuario->atualizarUsuario($arrayAtualizar)){
+        if($usuario->atualizar($arrayAtualizar)){
             header('Location: atualizar.php');
         } else {
             echo 'Erro ao atualizar usuario';
         }
     }
 
-    public function deletarUsuario($arrayDeletar){
+    public function deletar($arrayDeletar){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
         
-        if($usuario->deletarUsuario($arrayDeletar)){
+        if($usuario->deletar($arrayDeletar)){
             header('Location: atualizar.php');
         } else {
             echo 'Erro ao excluir usuario';
