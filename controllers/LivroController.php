@@ -23,13 +23,13 @@ class LivroController{
         }
     }
 
-    public function lerLivro($lerLivro){
+    public function getIdLivro($lerLivro){
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->lerLivro($lerLivro)){
+        if($livro->getIdLivro($lerLivro)){
             header('Location: listar.php');
         } else {
             echo 'Erro ao listar livros';
