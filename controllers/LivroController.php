@@ -4,6 +4,8 @@ require "./config/database.php";
 require "./models/Livro.php";
 
 class LivroController{
+    protected $tabela = 'livro';
+
     public function cadastrarLivro($titulo, $autor, $genero){
         $database = new Banco();
         $bd = $database->conectar();
@@ -13,7 +15,7 @@ class LivroController{
         $livro->autor = $autor;
         $livro->genero = $genero;
 
-        if($livro->cadastrarLivro()){
+        if($livro->cadastrarLivro($titulo, $autor, $genero)){
             header('Location: index.php');
         }
         else{
@@ -21,8 +23,20 @@ class LivroController{
         }
     }
 
-    public function atualizarLivro($arrayAtualizar){
+    public function lerLivro($lerLivro){
+        $database = new Banco();
+        $bd = $database->conectar();
 
+        $livro = new Livro($bd);
+
+        if($livro->lerLivro($lerLivro)){
+            header('Location: listar.php');
+        } else {
+            echo 'Erro ao listar livros';
+        }
+    }
+
+    public function atualizarLivro($arrayAtualizar){
         $database = new Banco();
         $bd = $database->conectar();
 
@@ -33,10 +47,9 @@ class LivroController{
         } else {
             echo "Erro ao atualizar o livro";
         }
-
     }
 
-    class deletarLivro($arrayDeletar){
+    public function deletarLivro($arrayDeletar){
         $database = new Banco();
         $bd = $database->conectar();
 
@@ -48,6 +61,4 @@ class LivroController{
             echo "Erro ao deletar o livro";
         }
     }
-
-
 }
