@@ -4,7 +4,9 @@ require "./config/database.php";
 require "./models/usuario.php";
 
 class ControllerUsuario {
-    public function cadastrarUsuario($nome, $email, $telefone, $cep){
+    protected $tabela = 'usuario';
+
+    public function criar($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento){
         $database = new Banco();
         $bd = $database->conectar();
     
@@ -13,11 +15,54 @@ class ControllerUsuario {
         $usuario->email = $email;
         $usuario->telefone = $telefone;
         $usuario->cep = $cep;
+        $this->Ncasa = $Ncasa; 
+        $this->telfixo = $telfixo;
+        $this->celular = $celular;
+        $this->nascimento = $nascimento; 
     
-        if($usuario->cadastrarUsuario()){
+        if($usuario->criar($nome, $email, $telefone, $cep)){
             header('Location: index.php');
-        } else{
+        } else {
             echo "Erro ao cadastrar usuario";    
+        }
+    }
+
+    public function ler($arrayLer){
+        $database = new Banco();
+        $bd = $database->conectar();
+    
+        $usuario = new Usuario($bd);
+
+        if($usuario->ler($arrayLer)){
+            header('Locatin: listar.php');
+        } else {
+            echo 'Erro ao listar usuarios';
+        }
+    }
+
+    public function atualizar($arrayAtualizar){
+        $database = new Banco();
+        $bd = $database->conectar();
+    
+        $usuario = new Usuario($bd);
+
+        if($usuario->atualizar($arrayAtualizar)){
+            header('Location: atualizar.php');
+        } else {
+            echo 'Erro ao atualizar usuario';
+        }
+    }
+
+    public function deletar($arrayDeletar){
+        $database = new Banco();
+        $bd = $database->conectar();
+    
+        $usuario = new Usuario($bd);
+        
+        if($usuario->deletar($arrayDeletar)){
+            header('Location: atualizar.php');
+        } else {
+            echo 'Erro ao excluir usuario';
         }
     }
 }
