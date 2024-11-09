@@ -8,7 +8,7 @@ class banco {
     public $conexao;
 
     public function conectar(){
-        $this->conexao = new mysqli(self::host, self::banco, self::usuario, self::senha, self::, self::banco);
+        $this->conexao = new mysqli(self::host, self::usuario, self::senha, self::banco);
 
         
         if(!$this->conexao){
@@ -18,5 +18,4 @@ class banco {
         }
     }
 }
-
 ?>
