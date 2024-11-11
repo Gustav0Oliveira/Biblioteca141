@@ -20,7 +20,7 @@ class ControllerUsuario {
         $this->celular = $celular;
         $this->nascimento = $nascimento; 
     
-        if($usuario->criar($nome, $email, $telefone, $cep)){
+        if($usuario->criar($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento)){
             header('Location: index.php');
         } else {
             echo "Erro ao cadastrar usuario";    
