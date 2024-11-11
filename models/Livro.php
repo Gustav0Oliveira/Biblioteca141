@@ -1,6 +1,6 @@
 <?php
-
-class Livro{
+require_once './interface/crud.php'
+class Livro implements Crud{
     private $conexao;
     private $tabela = 'livro';
 
@@ -15,58 +15,60 @@ class Livro{
         $this->conexao = $bd;
     }
 
-    public function getIdLivro($id){
-        $query = "SELECT * FROM {$this->tabela} WHERE id = {$this->id};";
-        $resultado = $this->conexao->query($query);
-        return $resultado->fetch_all(MYSQLI_ASSOC);
+    public function read($id){
+        if($id == ''){
+            $query = "SELECT * FROM {$this->tabela};";
+            $resultado = $this->conexao->query($query);
+        
+            return $resultado->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $query = "SELECT * FROM {$this->tabela} WHERE id = {$id};";
+            $resultado = $this->conexao->query($query);
+        }
     }
 
-    public function cadastrarLivro(){
+    public function create(){
         $query = "INSERT INTO {$this->tabela} (titulo, autor, genero) values ('{$this->titulo}','{$this->autor}', '{$this->genero}');";
         $resultado = $this->conexao->query($query);
         return $resultado;
     }
     
-    public function deletarLivro(){
-        $query = "DELETE FROM {$this->tabela} WHERE titulo = '{$this->titulo}';";
+    public function delete(){
+        $query = "DELETE FROM {$this->tabela} WHERE id = {$this->id};";
         return $this->conexao->query($query);
     }
 
-    public function atualizarLivro() {
-        // Verificando se o livro existe na tabela
+    public function update() {
         $queryVerifica = "SELECT * FROM {$this->tabela} WHERE id = {$this->id};";
-        $resultadoVerifica = $this->conexao->query($queryVerifica);
-    
-        if ($resultadoVerifica->num_rows === 0) {
-            return false; // Livro não encontrado
+        $verificaResultado = $this->conexao->query($queryVerifica);
+        if($verificaResultado->num_rows == 0){
+            return false; // acho foi nada          
         }
-        
         $valores = [
-            'titulo' => 'Como fazer amigos e influenciar pessoas',
-            'autor' => 'Dale Carnegie',
-            'genero' => 'Autoajuda'
+            'titulo' -> $this->titulo,
+            'autor' -> $this->autor,
+            'genero' -> $this->genero
         ];
-        
-        $colunasArrey = array_keys($valores);
+
+        $colunasArray = array_keys($valores);
         $contador = 0;
         $query = "UPDATE {$this->tabela} SET ";
-        
-        while ($contador < count($valores)) {
-        $coluna = $colunasArrey[$contador];
-        $valor = $valores[$coluna];
-        
-        $query .= $contador != (count($valores) - 1) 
-            ? $coluna . ' = "' . $valor . '", ' 
-            : $coluna . ' = "' . $valor . '" ';
 
-            $contador++;
+        while($contador < count($valores)){
+            $coluna = $colunasArray[$contador];
+            $valor = $valores[$coluna];
+
+            $query .= $contador != (count($valores) - 1) ? $coluna . '= "' . $valor . '", ' : $coluna . ' = "' . $valor . '" ';   
+
+            $contador ++;
         }
-        
+
         $query .= " WHERE id = {$this->id};";
         echo $query;
 
-        $resultadoAtualizacao = $this->conexao->query($query);
-        
-        return $resultadoAtualizacao;
+        $resultadoAtualizado = $this->conexao->query($query);
+
+        return $resultadoAtualizado;
+
     }
 }
