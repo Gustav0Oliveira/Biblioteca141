@@ -10,22 +10,11 @@
 <body>
     
 <?php
-
-
+include('headerfooter/header.php');
 ?>
-<nav>
-        <ul class="menu">
-            <li><a class="link"href="home.php">Home</a></li>
-            <li><a class="link"href="emprestimo.php">Emprestimo</a></li>
-            <li><a class="link"href="buscar.php">Buscar</a></li>
-            <li><a class="link"href="cadastro_usuario.php">Cadastro Usuario</a></li>
-            <li><a class="link"href="cadastro_livro.php">Cadastro Livro</a></li>
-            <li><a class="link"href="lista_livros.php">Lista de Livros Cadastrados</a></li>
-            <li><a class="link"href="login.php">Login</a></li>
-
-        </ul>
-</nav>
+<main>
     <div class="box">
+    
         <form action="index.php" method="post">
             <form>
                 <legend><b>Biblioteca - Pesquisa</b></legend>
@@ -72,6 +61,18 @@
                 <input type="submit" name="submit" id="submit">
             </form>
         </form>
+   
     </div>
+</main>
+<?php
+include('headerfooter/footer.php');
+?>
+
+
+    
+    
+   
+
 </body>
+
 </html>
