@@ -53,7 +53,7 @@
     <a class="voltar" href="home.php">Voltar</a>
     <div>
         <h1 >Login</h1>
-        <form action="testLogin.php" method="POST">
+        <form action="home.php" method="POST">
             <input type="text" name="email" placeholder="Email">
             <br><br>
             <input type="password" name="senha" placeholder="Senha">
