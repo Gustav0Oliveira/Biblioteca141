@@ -1,5 +1,7 @@
 <?php
-require_once './interface/crud.php'
+require_once './interface/crud.php';
+require_once './config/database.php';
+
 class Emprestimo implements Crud {
     private $conexao;
     private $tabela = 'emprestimos';
