@@ -19,15 +19,16 @@ insert into usuario (nome,cpf,email,cep,nCasa,telfixo,celular,dataNasc,senha) va
 
 create table livros (
 id_livro int primary key auto_increment,
-nome varchar(100),
+titulo varchar(100),
 autor varchar (50),
+isbn varchar(20),
 genero varchar (20),
 quantDisponivel int(4),
 lancamento date
 );
 
 
-insert into livros (nome,autor,genero,quantDisponivel,lancamento) values 
+insert into livros (titulo,autor,isbn,genero,quantDisponivel,lancamento) values 
 ('Senhor dos aneis 1','Tolkien','Fantasia','10','2001-01-10'),
 ('Senhor dos aneis 1','Tolkien','Fantasia','10','2001-01-10'),
 ('Senhor dos aneis 1','Tolkien','Fantasia','10','2001-01-10'),

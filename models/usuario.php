@@ -10,10 +10,9 @@ protected $Ncasa;
 protected $telfixo;
 protected $celular;
 protected $nascimento;
-protected $qt_livros =[];
-const max_emprestimo =3;
+protected $senha;
 
-public function __contruct($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento){
+public function __contruct($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento,$senha){
 
     $this -> nome = $nome;
     $this -> cpf = $cpf;
@@ -23,6 +22,7 @@ public function __contruct($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nasc
     $this -> telfixo = $telfixo;
     $this -> celular = $celular;
     $this -> nascimento = $nascimento;
+    $this -> senha = $senha;
 }
 
 public function emprestar($livro){
@@ -44,8 +44,8 @@ public function devolver($livro){
 }
 
 public function criar($nome){
-    return "insert into usuario(nome,cpf,email,cep,Ncasa,telfixo,celular,nascimento) values (".$this->nome.",".$this->cpf.",".$this->email.",".$this->cep.",
-    ".$this->Ncasa.",".$this->telfixo.",".$this->celular.",".$this->nascimento.");";
+    return "insert into usuario (nome,cpf,email,cep,nCasa,telfixo,celular,dataNasc,senha) values (".$this->nome.",".$this->cpf.",".$this->email.",".$this->cep.",
+    ".$this->Ncasa.",".$this->telfixo.",".$this->celular.",".$this->nascimento.",".$this->senha.");";
 }
 public function ler(){
     return "select * from usuario where nome = ".$this->nome.";";
@@ -54,7 +54,7 @@ public function atualizar(){
     return "update usuario set nome=".$nome_atualizado. "where nome=".$this->nome.";";
     }
 public function deletar(){
-    return "delete nome from usuario where=".$this->nome.";";
+    return " delete from `biblioteca141`.`usuario` WHERE ".$this->nome.";";
 }
 }
 
