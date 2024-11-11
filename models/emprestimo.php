@@ -1,5 +1,7 @@
 <?php
-require_once './interface/crud.php'
+require_once './interface/crud.php';
+require_once './config/database.php';
+
 class Emprestimo implements Crud {
     private $conexao;
     private $tabela = 'emprestimos';
@@ -14,22 +16,35 @@ class Emprestimo implements Crud {
         $this->conexao = $bd;
     }
 
-    public function read($valor){
-        return 'SELECT * FROM {$this->tabela} WHERE id = {$valor};';
+    public function __construct($livro_id, $usuario_id, $data_devolucao, $data_emprestimo){
+        $this->livro_id = $livro_id;
+        $this->usuario_id = $usuario_id;
+        $this->data_devolucao = $data_devolucao;
+        $this->data_emprestimo = $data_emprestimo;
+    }
+
+    public function read($id){
+        $query = "SELECT * FROM {$this->tabela} WHERE id = {$valor};";
+        $resultado = $this->conexao->query($query);
+        return $resultado->fetch_all(MYSQLI_ASSOC);
 
     }
     
     public function create(){
-        return "INSERT INTO {$this->tabela}(livro_id, usuario_id, data_emprestimo, data_devolucao) VALUES ({$this->livro_id}, {$this->usuario_id}, '{$this->data_emprestimo}', '{$this->data_devolucao}');";
+        $query = "INSERT INTO {$this->tabela}(livro_id, usuario_id, data_emprestimo, data_devolucao) VALUES ({$this->livro_id}, {$this->usuario_id}, '{$this->data_emprestimo}', '{$this->data_devolucao}');";
+        $resultado = $this->conexao->query($query);
+        return $resultado;
     }
     
 
     public function update(){
-        return "UPDATE {$this->tabela} SET livro_id = {$this->livro_id}, usuario_id = {$this->usuario_id}, data_emprestimo = '{$this->data_emprestimo}', data_devolucao = '{$this->data_devolucao}' WHERE id = {$this->id};";
+        $query = "UPDATE {$this->tabela} SET livro_id = {$this->livro_id}, usuario_id = {$this->usuario_id}, data_emprestimo = '{$this->data_emprestimo}', data_devolucao = '{$this->data_devolucao}' WHERE id = {$this->id};";
     }
     
     public function delete(){
-        return "DELETE FROM {$this->tabela} WHERE id = {$this->id};";
+        $query = "DELETE FROM {$this->tabela} WHERE id = {$this->id};";
+        $resultado = $this->conexao->query($query);
+        return $resultado;
     }
 
 }
