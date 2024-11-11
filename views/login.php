@@ -50,7 +50,6 @@
 </head>
 <body>
 <main>
-    <a class="voltar" href="home.php">Voltar</a>
     <div>
         <h1 >Login</h1>
         <form action="home.php" method="POST">
