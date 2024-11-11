@@ -65,7 +65,6 @@ class Livro{
         $query .= " WHERE id = {$this->id};";
         echo $query;
 
-
         $resultadoAtualizacao = $this->conexao->query($query);
         
         return $resultadoAtualizacao;
