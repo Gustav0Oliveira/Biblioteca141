@@ -46,19 +46,22 @@
             color:white;
             font-size: 25px;
         }
+
     </style>
 </head>
 <body>
 <main>
     <div>
-        <h1 >Login</h1>
-        <form action="home.php" method="POST">
-            <input type="text" name="email" placeholder="Email">
-            <br><br>
-            <input type="password" name="senha" placeholder="Senha">
-            <br><br>
-            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
-        </form>
+        <div class="form-login">
+            <h1 >Login</h1>
+            <form action="home.php" method="POST">
+                <input type="text" name="email" placeholder="Email">
+                <br><br>
+                <input type="password" name="senha" placeholder="Senha">
+                <br><br>
+                <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+            </form>
+        </div>
     </div>
 </main>
 <?php
