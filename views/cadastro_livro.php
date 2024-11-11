@@ -8,36 +8,9 @@
 </head>
 <body>
 <?php
-
-if(isset($_POST['submit']))
-{
-   
-
-    $nome = $_POST['nome'];
-    $autor = $_POST['autor'];
-    $genero= $_POST['genero'];
-    $qtd_disponivel = $_POST['qtd_disponivel'];
-    $ano_lancamento = $_POST['ano_lancamento'];
-   
-   include_once('config\database.php');
-   $result = mysqli_query($conexao,"INSERT INTO funcionarios(nome,autor,genero,qtd_disponiveis,ano_lancamento) 
-   values ('$nome','$autor','$genero','$qtd_disponivel','$ano_lancamento')");
-
-}
+include('headerfooter/header.php');
 ?>
-<nav>
-        <ul class="menu">
-            <li><a class="link"href="home.php">Home</a></li>
-            <li><a class="link"href="emprestimo.php">Emprestimo</a></li>
-            <li><a class="link"href="buscar.php">Buscar</a></li>
-            <li><a class="link"href="cadastro_usuario.php">Cadastro Usuario</a></li>
-            <li><a class="link"href="cadastro_livro.php">Cadastro Livro</a></li>
-            <li><a class="link"href="lista_livros.php">Lista de Livros Cadastrados</a></li>
-            <li><a class="link"href="login.php">Login</a></li>
-
-        </ul>
-</nav>
-</nav>
+<main>
     <div class="box">
         <form action="index.php" method="post">
             <form>
@@ -82,6 +55,10 @@ if(isset($_POST['submit']))
             </form>
         </form>
     </div>
-    
+</main>
+<?php
+include('headerfooter/footer.php');
+?>
+
 </body>
 </html>
