@@ -4,13 +4,13 @@ body{
     margin:0;
     padding: 0;
     display: flex;
-    min-height: 150vh;
+    min-height: 120vh;
     flex-direction: column;
 }
 .box{
     color: white;
     position: absolute;
-    top: 80%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.6);
@@ -19,6 +19,18 @@ body{
     width: 30%;
     padding-bottom: 2.5rem;
     
+}
+.boxEmprestimo{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 30%;
+    padding-bottom: 2.5rem;
 }
 fieldset{
     border: 3px solid dodgerblue;
@@ -50,7 +62,7 @@ legend{
     pointer-events: none;
     transition: .5s;
 }
-.inputUser:focus ~ .labelInput,
+
 .inputUser:valid ~ .labelInput{
     top: -20px;
     font-size: 12px;
@@ -127,11 +139,15 @@ nav li {
     color: rgb(255, 255, 255);
     font-size:16pt;
     text-decoration: underline;
+    border: 1px solid;
+    text-align: center;
     
 }
 .descricao{
 
     color: rgb(241, 241, 163);
+    border: 1px solid white;
+    text-align: center;
     
 }
 main {
