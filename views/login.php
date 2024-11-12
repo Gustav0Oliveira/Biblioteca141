@@ -11,6 +11,7 @@
             font-family: Arial, Helvetica, sans-serif;
             background: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
         }
+        /* retirar fundo escuro no login */
         div{
             background-color: rgba(0, 0, 0, 0.6);
             position: absolute;
