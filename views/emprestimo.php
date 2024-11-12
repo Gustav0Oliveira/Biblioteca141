@@ -12,7 +12,7 @@ include('headerfooter/header.php');
 ?>
 <main>
 </nav>
-    <div class="box">
+    <div class="boxEmprestimo">
         <form action="index.php" method="post">
             <form>
                 <legend><b>Emprestar</b></legend>
