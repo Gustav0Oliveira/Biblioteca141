@@ -4,7 +4,7 @@ body{
     margin:0;
     padding: 0;
     display: flex;
-    min-height: 150vh;
+    min-height: 100vh;
     flex-direction: column;
     height: 100vh;
 }
@@ -37,6 +37,32 @@ body{
 .boxEmprestimo{
     color: white;
     position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxCadslivro{
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxCadsusuario{
+    color: white;
+    position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -47,6 +73,7 @@ body{
     padding-bottom: 2.5rem;
     
 }
+
 .boxBuscar{
     color: white;
     position: absolute;
@@ -57,7 +84,7 @@ body{
     padding:15px;
     border-radius: 15px;
     width: 40%;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
     
 }
 fieldset{
@@ -142,7 +169,7 @@ nav ul {
 nav li {
     margin: 0 30px; 
     font-size: 15pt;
-    padding: 10px;
+    padding: 5px;
     color: white;
     
     
@@ -164,8 +191,8 @@ nav li {
     margin: auto;
     display: block;
     color: white;
-    margin: 1%;
-    font-size: 1.2rem;
+    margin: 5%;
+    font-size: 18pt;
 }
 .tabela{
     color: rgb(255, 255, 255);
@@ -183,11 +210,10 @@ nav li {
     
 }
 .main {
-    position: relative;
-  height: 100vh;
+    flex-grow: 1;
 }
-.fixarRodape {
-    position:absolute;
+.footer {
+    position:fixed;
     bottom: 0%;
     left: 0;
     width: 100%;
@@ -198,5 +224,5 @@ nav li {
 
 }.box {
     position: relative;
-    min-height: 80vh;
+    min-height: 100vh;
   }
