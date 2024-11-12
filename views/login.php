@@ -26,7 +26,9 @@
             padding: 15px;
             border: none;
             outline: none;
+            border-radius: 20px;
             font-size: 15px;
+            
         }
         .inputSubmit{
             background-color: dodgerblue;
@@ -47,6 +49,7 @@
             color:white;
             font-size: 25px;
         }
+        
 
     </style>
 </head>
