@@ -23,7 +23,7 @@ class LivroController{
         }
     }
 
-    public function read($lerLivro){
+    public function read($id){
         $database = new Banco();
         $bd = $database->conectar();
 
