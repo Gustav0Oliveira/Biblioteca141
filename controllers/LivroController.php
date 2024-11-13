@@ -1,7 +1,7 @@
 <?php
 
-require "./config/database.php";
-require "./models/Livro.php";
+require "../config/database.php";
+require "../models/Livro.php";
 
 class LivroController{
     protected $tabela = 'livro';
