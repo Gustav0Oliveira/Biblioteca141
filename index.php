@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/livroControllers.php';
+require_once './controllers/livroController.php';
 
 $acao = $_GET['acao'];
 
@@ -11,7 +11,7 @@ switch($acao){
         break;
 
     default:
-        include 'views/formCadastroLivro.php';
+        include 'views/cadastro_livro.php';
 
 
 }
