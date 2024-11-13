@@ -58,9 +58,9 @@
     <div class="form-login">
         <h1 >Login</h1>
         <form action="home.php" method="POST">
-            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="email" placeholder="Email" required>
             <br><br>
-            <input type="password" name="senha" placeholder="Senha">
+            <input type="password" name="senha" placeholder="Senha"required>
             <br><br>
             <input class="inputSubmit" type="submit" name="submit" value="Enviar">
         </form>
