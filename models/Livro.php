@@ -1,6 +1,6 @@
 <?php
 require_once 'interface/crud.php';
-require_once './config/database.php';
+require_once '../config/database.php';
 
 class Livro implements Crud{
     private $conexao;
