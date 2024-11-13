@@ -13,7 +13,7 @@ include('headerfooter/header.php');
 require_once "../controllers/LivroController.php";
 
 $livroController = new livroController();
-$livros = $livroController->read();
+$livros = $livroController->read($id);
 
 if(count($livros) > 0){
     echo "<h2>Lista de Livros</h2>";
