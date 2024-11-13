@@ -2,7 +2,7 @@
 
 interface Crud{
     public function create();
-    public function read($id);
+    public function read();
     public function update();
     public function delete();
 }

@@ -1,39 +1,33 @@
 <?php
-require_once '.../interface/crud.php';
+
 require "../config/database.php";
 require "../models/Livro.php";
 
-class LivroController implements Crud{
-    protected $tabela = 'livro';
-
-    public function create($titulo, $autor, $genero){
+class LivroController{
+    public function create($titulo) {
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
-        $livro->titulo = $titulo;
-        $livro->autor = $autor;
-        $livro->genero = $genero;
-
-        if($livro->create($titulo, $autor, $genero)){
-            header('Location: index.php');
-        }
-        else{
-            echo "Erro ao cadastrar livro";
-        }
+        $livro->titulo = $_POST['titulo'];
+        $livro->autor = $_POST['autor'];
+        $livro->isbn = $_POST['isbn'];
+        $livro->genero = $_POST['genero'];
+        $livro->quantDisponivel = $_POST['qtd_disponivel'];
+        $livro->lancamento = $_POST['ano_lancamento'];
+        
+        // var_dump($livro->create());
+        
     }
 
-    public function read($lerLivro){
+    public function read(){
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->read($lerLivro)){
-            header('Location: listar.php');
-        } else {
-            echo 'Erro ao listar livros';
-        }
+        $resultado = $livro->read();
+        return $resultado;
     }
 
     public function update($arrayAtualizar){
@@ -42,23 +36,13 @@ class LivroController implements Crud{
 
         $livro = new Livro($bd);
 
-        if($livro->update($arrayAtualizar)){
-            header('Location: atualizar.php');
-        } else {
-            echo "Erro ao atualizar o livro";
-        }
+        
     }
 
     public function delete($arrayDeletar){
         $database = new Banco();
         $bd = $database->conectar();
 
-        $livro = new Livro($bd);
-
-        if($livro->delete($arrayDeletar)){
-            header('Location: deletar.php');
-        } else {
-            echo "Erro ao deletar o livro";
-        }
+        
     }
 }

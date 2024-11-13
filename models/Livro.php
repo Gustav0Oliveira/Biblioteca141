@@ -4,35 +4,40 @@ require_once '../config/database.php';
 
 class Livro implements Crud{
     private $conexao;
-    private $tabela = 'livro';
+    private $tabela = 'livros';
 
     public $id;
     public $titulo;
     public $autor;
     public $isbn;
     public $genero;
-    public $status = "";
+    public $quantDisponivel;
+    public $lancamento;
     
     public function __construct($bd){
         $this->conexao = $bd;
     }
 
-    public function read($id){
-        if($id == ''){
+    public function read(){
+        if($this->id == ''){
             $query = "SELECT * FROM {$this->tabela};";
             $resultado = $this->conexao->query($query);
         
             return $resultado->fetch_all(MYSQLI_ASSOC);
         } else {
-            $query = "SELECT * FROM {$this->tabela} WHERE id = {$id};";
+            $query = "SELECT * FROM {$this->tabela} WHERE id = {$this->id};";
             $resultado = $this->conexao->query($query);
+            return $resultado->fetch_all(MYSQLI_ASSOC);
         }
     }
 
     public function create(){
-        $query = "INSERT INTO {$this->tabela} (titulo, autor, genero) values ('{$this->titulo}','{$this->autor}', '{$this->genero}');";
+        $query = "INSERT INTO {$this->tabela} (titulo, autor, isbn, genero, quantDisponivel, lancamento) values ('{$this->titulo}','{$this->autor}', '{$this->genero}', '{$this->isbn}', '{$this->quantDisponivel}', '{$this->lancamento}');";
+
         $resultado = $this->conexao->query($query);
+
         return $resultado;
+
     }
     
     public function delete(){

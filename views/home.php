@@ -12,20 +12,22 @@ include('headerfooter/header.php');
 
 require_once "../controllers/LivroController.php";
 
-$livroController = new livroController();
-$livros = $livroController->read();
+$livroController = new LivroController(); // Corrigido para PascalCase
+$livrosEncontrados = $livroController->read();
 
-if(count($livros) > 0){
+if(count($livrosEncontrados) > 0){
     echo "<h2>Lista de Livros</h2>";
     echo "<table>";
-    echo "<tr><th>ID</th><th>Título</th><th>Autor</th><th>Gênero</th></tr>";
+    echo "<tr><th>ID</th><th>Título</th><th>Autor</th><th>Gênero</th><th>Quantidade Disponível</th><th>Ano de Lançamento</th></tr>"; // Adicionado cabeçalhos
 
-    foreach($livros as $livros){
+    foreach($livrosEncontrados as $livro){ // Corrigido para 'livro'
         echo "<tr>";
         echo "<td>" . htmlspecialchars($livro['id']) . "</td>";
         echo "<td>" . htmlspecialchars($livro['titulo']) . "</td>";
         echo "<td>" . htmlspecialchars($livro['autor']) . "</td>";
         echo "<td>" . htmlspecialchars($livro['genero']) . "</td>";
+        echo "<td>" . htmlspecialchars($livro['qtd_disponivel']) . "</td>"; // Adicionado
+        echo "<td>" . htmlspecialchars($livro['ano_lancamento']) . "</td>"; // Adicionado
         echo "</tr>";
     }
     echo "</table>";
@@ -35,6 +37,5 @@ if(count($livros) > 0){
 
 include('headerfooter/footer.php');
 ?>
-
 </body>
 </html>
