@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <footer class="fixarRodape">Biblioteca141 - Senac Hub Academy</footer>
+    <footer class="footer">Biblioteca141 - Senac Hub Academy</footer>
     
 </body>
 </html>

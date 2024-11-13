@@ -26,7 +26,9 @@
             padding: 15px;
             border: none;
             outline: none;
+            border-radius: 20px;
             font-size: 15px;
+            
         }
         .inputSubmit{
             background-color: dodgerblue;
@@ -47,22 +49,21 @@
             color:white;
             font-size: 25px;
         }
+        
 
     </style>
 </head>
 <body>
 <main>
-    <div>
-        <div class="form-login">
-            <h1 >Login</h1>
-            <form action="home.php" method="POST">
-                <input type="text" name="email" placeholder="Email">
-                <br><br>
-                <input type="password" name="senha" placeholder="Senha">
-                <br><br>
-                <input class="inputSubmit" type="submit" name="submit" value="Enviar">
-            </form>
-        </div>
+    <div class="form-login">
+        <h1 >Login</h1>
+        <form action="home.php" method="POST">
+            <input type="text" name="email" placeholder="Email">
+            <br><br>
+            <input type="password" name="senha" placeholder="Senha">
+            <br><br>
+            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+        </form>
     </div>
 </main>
 <?php
