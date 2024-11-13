@@ -21,7 +21,7 @@ class ControllerUsuario implements Crud{
         $this->nascimento = $nascimento; 
     
         if($usuario->create($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento)){
-            header('Location: index.php');
+            header('Location: ./views/cadastar_livro.php');
         } else {
             echo "Erro ao cadastrar usuario";    
         }
@@ -34,7 +34,7 @@ class ControllerUsuario implements Crud{
         $usuario = new Usuario($bd);
 
         if($usuario->read($arrayLer)){
-            header('Locatin: listar.php');
+            header('Locatin: ./views/home.php');
         } else {
             echo 'Erro ao listar usuarios';
         }
