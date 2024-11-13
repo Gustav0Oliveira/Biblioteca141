@@ -1,12 +1,12 @@
 <?php
-
+require_once '.../interface/crud.php';
 require "../config/database.php";
 require "../models/usuario.php";
 
-class ControllerUsuario {
+class ControllerUsuario implements Crud{
     protected $tabela = 'usuario';
 
-    public function criar($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento){
+    public function create($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento){
         $database = new Banco();
         $bd = $database->conectar();
     
@@ -20,46 +20,46 @@ class ControllerUsuario {
         $this->celular = $celular;
         $this->nascimento = $nascimento; 
     
-        if($usuario->criar($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento)){
+        if($usuario->create($nome,$cpf,$email,$cep,$Ncasa,$telfixo,$celular,$nascimento)){
             header('Location: index.php');
         } else {
             echo "Erro ao cadastrar usuario";    
         }
     }
 
-    public function ler($arrayLer){
+    public function read($arrayLer){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
 
-        if($usuario->ler($arrayLer)){
+        if($usuario->read($arrayLer)){
             header('Locatin: listar.php');
         } else {
             echo 'Erro ao listar usuarios';
         }
     }
 
-    public function atualizar($arrayAtualizar){
+    public function update($arrayAtualizar){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
 
-        if($usuario->atualizar($arrayAtualizar)){
+        if($usuario->update($arrayAtualizar)){
             header('Location: atualizar.php');
         } else {
             echo 'Erro ao atualizar usuario';
         }
     }
 
-    public function deletar($arrayDeletar){
+    public function delete($arrayDeletar){
         $database = new Banco();
         $bd = $database->conectar();
     
         $usuario = new Usuario($bd);
         
-        if($usuario->deletar($arrayDeletar)){
+        if($usuario->delete($arrayDeletar)){
             header('Location: atualizar.php');
         } else {
             echo 'Erro ao excluir usuario';

@@ -1,12 +1,12 @@
 <?php
-
+require_once '.../interface/crud.php';
 require "../config/database.php";
 require "../models/Livro.php";
 
-class LivroController{
+class LivroController implements Crud{
     protected $tabela = 'livro';
 
-    public function cadastrarLivro($titulo, $autor, $genero){
+    public function create($titulo, $autor, $genero){
         $database = new Banco();
         $bd = $database->conectar();
 
@@ -15,7 +15,7 @@ class LivroController{
         $livro->autor = $autor;
         $livro->genero = $genero;
 
-        if($livro->cadastrarLivro($titulo, $autor, $genero)){
+        if($livro->create($titulo, $autor, $genero)){
             header('Location: index.php');
         }
         else{
@@ -23,39 +23,39 @@ class LivroController{
         }
     }
 
-    public function getIdLivro($lerLivro){
+    public function read($lerLivro){
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->getIdLivro($lerLivro)){
+        if($livro->read($lerLivro)){
             header('Location: listar.php');
         } else {
             echo 'Erro ao listar livros';
         }
     }
 
-    public function atualizarLivro($arrayAtualizar){
+    public function update($arrayAtualizar){
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->atualizarLivro($arrayAtualizar)){
+        if($livro->update($arrayAtualizar)){
             header('Location: atualizar.php');
         } else {
             echo "Erro ao atualizar o livro";
         }
     }
 
-    public function deletarLivro($arrayDeletar){
+    public function delete($arrayDeletar){
         $database = new Banco();
         $bd = $database->conectar();
 
         $livro = new Livro($bd);
 
-        if($livro->deletarLivro($arrayDeletar)){
+        if($livro->delete($arrayDeletar)){
             header('Location: deletar.php');
         } else {
             echo "Erro ao deletar o livro";
