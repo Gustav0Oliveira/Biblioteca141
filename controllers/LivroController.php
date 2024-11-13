@@ -1,12 +1,12 @@
 <?php
-require_once '.../interface/crud.php';
+
 require "../config/database.php";
 require "../models/Livro.php";
 
-class LivroController implements Crud{
+class LivroController{
     protected $tabela = 'livro';
 
-    public function create($titulo, $autor, $genero){
+    public function create($id, $titulo, $autor, $genero){
         $database = new Banco();
         $bd = $database->conectar();
 

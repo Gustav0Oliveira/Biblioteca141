@@ -1,9 +1,9 @@
 <?php
-require_once '.../interface/crud.php';
+
 require "../config/database.php";
 require "../models/usuario.php";
 
-class ControllerUsuario implements Crud {
+class ControllerUsuario{
     protected $tabela = 'usuario';
 
     public function create($nome, $cpf, $email, $cep, $Ncasa, $telfixo, $celular, $nascimento, $senha) {
