@@ -1,7 +1,7 @@
 <?php
 
-require "./config/database.php";
-require "./models/usuario.php";
+require "../config/database.php";
+require "../models/usuario.php";
 
 class ControllerUsuario {
     protected $tabela = 'usuario';
