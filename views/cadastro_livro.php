@@ -8,57 +8,53 @@
 </head>
 <body>
 <?php
-include('headerfooter/header.php');
+include_once('headerfooter/header.php');
+
+if(isset($_POST["titulo"])){
+    require_once "../controllers/LivroController.php";
+    $controllerLivro = new LivroController();
+    $controllerLivro->create($_POST["titulo"],$_POST["autor"],$_POST["isbn"],$_POST["genero"],$_POST["qtd_disponivel"],$_POST["ano_lancamento"]);
+}
 ?>
 <main>
     <div class="boxCadslivro">
-        <form action="index.php" method="post">
-            <form>
-                <legend><b>Cadastro de Livro</b></legend>
-                <br>
-                <form>
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome:</label>
-                    
-                </div>
-                <br><br> 
-            </form>
-                <div class="inputBox">
-                    <input type="text" name="autor" id="autor" class="inputUser" required>
-                    <label for="autor" class="labelInput">Autor:</label>
-                    
-                </div>
-            </form>
-                <br><br> 
-            <form>
-                <div class="inputBox">
-                    <input type="text" name="genero" id="genero" class="inputUser" required>
-                    <label for="genero" class="labelInput">Gênero:</label>
-                
-                </div>
-                <br><br> 
-            </form>
-            <form>
-                <div class="inputBox">
-                    <input type="number" name="qtd_disponivel" id="qtd_disponivel" class="inputUser" required>
-                    <label for="qtd_disponivel" class="labelInput">Quantidade Disponíveis:</label>
-                
-                </div>
-                <br><br> 
-            </form>         
-            <form>
-                <label for="ano_lancamento"><b>Data de Laçamento do livro :</b></label>
-                <input type="date" name="ano_lancamento" id="ano_lancamento" required>
-                <br><br>
-                <input type="submit" name="submit" id="submit">
-            </form>
+        <form action="cadastro_livro.php" method="post">
+            <legend><b>Cadastro de Livro</b></legend>
+            <br>
+            <div class="inputBox">
+                <input type="text" name="titulo" id="titulo" class="inputUser " required>
+                <label for="titulo" class="labelInput">Título:</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" name="autor" id="autor" class="inputUser " required>
+                <label for="autor" class="labelInput">Autor:</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" name="isbn" id="isbn" class="inputUser " required>
+                <label for="isbn" class="labelInput">ISBN:</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" name="genero" id="genero" class="inputUser " required>
+                <label for="genero" class="labelInput">Gênero:</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="number" name="qtd_disponivel" id="qtd_disponivel" class="inputUser " required>
+                <label for="qtd_disponivel" class="labelInput">Quantidade Disponíveis:</label>
+            </div>
+            <br><br>
+            <label for="ano_lancamento"><b>Data de Lançamento do livro:</b></label>
+            <input type="date" name="ano_lancamento" id="ano_lancamento" required>
+            <br><br>
+            <input type="submit" name="submit" id="submit" value="Cadastrar Livro">
         </form>
     </div>
 </main>
 <?php
-include('headerfooter/footer.php');
+include_once('headerfooter/footer.php');
 ?>
-
 </body>
 </html>
