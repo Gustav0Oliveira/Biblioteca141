@@ -11,7 +11,7 @@
 include('headerfooter/header.php');
 ?>
 <main>
-    <div class="box">
+    <div class="boxCadsusuario">
         <form action="index.php" method="post">
             <form>
                 <legend><b>Cadastro de Usuario</b></legend>

@@ -13,7 +13,7 @@
 include('headerfooter/header.php');
 ?>
 <main>
-    <div class="box">
+    <div class="boxBuscar">
     
         <form action="index.php" method="post">
             <form>
@@ -67,12 +67,6 @@ include('headerfooter/header.php');
 <?php
 include('headerfooter/footer.php');
 ?>
-
-
-    
-    
-   
-
 </body>
 
 </html>
