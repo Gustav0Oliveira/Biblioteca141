@@ -11,7 +11,7 @@ switch($acao){
         break;
 
     default:
-        include 'views/cadastro_livro.php';
+        include 'views/cadastro_livro';
 
 
 }
