@@ -26,8 +26,8 @@ include('headerfooter/header.php');
                 </div>
                 
                 <div class="inputBox">
-                    <input type="tel" name="cargo" id="cargo" class="inputUser" required>
-                    <label for="cargo" class="labelInput">Cod Livro: </label>
+                    <input type="text" name="cargo" id="cargo" class="inputUser" required>
+                    <label for="cargo" class="labelInput">Titulo Livro: </label>
                     
                 </div>
             </form>
