@@ -11,8 +11,8 @@
 include('headerfooter/header.php');
 ?>
 <main>
-</nav>
-    <div class="boxEmprestimo">
+
+    <div class="boxLista">
         <form action="index.php" method="post">
             
         <legend><b>Lista livros</b></legend>
@@ -48,10 +48,10 @@ include('headerfooter/header.php');
         <td class="descricao">Ficção científica</td>
         <td class="descricao">2025 (futuro)</td>
     </tr>
-</table>
+    </table>
         </form>
     </div>
-    </main>
+</main>
 <?php
 include('headerfooter/footer.php');
 ?>

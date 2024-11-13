@@ -4,10 +4,77 @@ body{
     margin:0;
     padding: 0;
     display: flex;
-    min-height: 150vh;
+    min-height: 100vh;
     flex-direction: column;
+    height: 100vh;
 }
 .box{
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 30%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxLista{
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxEmprestimo{
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxCadslivro{
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+.boxCadsusuario{
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:15px;
+    border-radius: 15px;
+    width: 40%;
+    padding-bottom: 2.5rem;
+    
+}
+
+.boxBuscar{
     color: white;
     position: absolute;
     top: 80%;
@@ -16,8 +83,8 @@ body{
     background-color: rgba(0, 0, 0, 0.6);
     padding:15px;
     border-radius: 15px;
-    width: 30%;
-    padding-bottom: 2.5rem;
+    width: 40%;
+    padding-bottom: 3.5rem;
     
 }
 fieldset{
@@ -92,17 +159,17 @@ legend{
 }
 
 nav ul {
-    list-style: none; /* Remove marcadores de lista */
-    display: flex; /* Cria um layout flexbox */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
     
     
 }
 
 nav li {
-    margin: 0 30px; /* Adiciona margem entre os itens */
+    margin: 0 30px; 
     font-size: 15pt;
-    padding: 10px;
+    padding: 5px;
     color: white;
     
     
@@ -112,39 +179,41 @@ nav li {
     text-decoration: none;
 
 }
-/* .img{
+.img{
     margin:auto;
     display: block;
-    border-radius: 30px;
+    border-radius: 20px;
+    text-align: center;
    
-} */
+} 
 
-.img srcset{
-
-}
 .Text{
     margin: auto;
     display: block;
     color: white;
-    margin: 1%;
-    font-size: 1.2rem;
+    margin: 5%;
+    font-size: 18pt;
 }
 .tabela{
     color: rgb(255, 255, 255);
     font-size:16pt;
     text-decoration: underline;
+    border:1px solid white;
+    text-align: center;
     
 }
 .descricao{
 
-    color: rgb(241, 241, 163);
+    color: rgb(142, 172, 236);
+    border:1px solid white;
+    text-align: center;
     
 }
-main {
+.main {
     flex-grow: 1;
 }
-.fixarRodape {
-    
+.footer {
+    position:fixed;
     bottom: 0%;
     left: 0;
     width: 100%;
@@ -153,10 +222,7 @@ main {
     border:0;
     height: 20px;
 
-
-  
-}
-#page-container {
+}.box {
     position: relative;
     min-height: 100vh;
   }
