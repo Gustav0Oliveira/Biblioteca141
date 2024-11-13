@@ -11,7 +11,7 @@
 include('headerfooter/header.php');
 ?>
 <main>
-    <div class="box">
+    <div class="boxCadslivro">
         <form action="index.php" method="post">
             <form>
                 <legend><b>Cadastro de Livro</b></legend>
